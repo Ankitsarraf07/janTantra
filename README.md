@@ -1,16 +1,91 @@
-# React + Vite
+# Jan Tantra
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jan Tantra is a digital governance platform with a React frontend and a Node.js/Express backend.
 
-Currently, two official plugins are available:
+This folder contains the frontend client built with Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- Frontend: React 18, Vite, React Router, Axios, Recharts
+- Backend: Node.js, Express, MongoDB (Mongoose), JWT authentication
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
+- `client/` Frontend app
+- `server/` Backend API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Prerequisites
+
+- Node.js 18+ recommended
+- npm
+- MongoDB connection string
+
+## Environment Variables (Backend)
+
+Create `server/.env` with:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_strong_secret
+JWT_EXPIRE=7d
+NODE_ENV=development
+```
+
+## Run Locally
+
+### 1. Start backend
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+Backend runs at `http://localhost:5000`.
+
+### 2. Start frontend
+
+Open a new terminal:
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Frontend runs at `http://localhost:5173`.
+
+## Available Scripts
+
+### Client
+
+- `npm run dev` Start Vite dev server
+- `npm run build` Build production bundle
+- `npm run preview` Preview production build
+
+### Server
+
+- `npm start` Run server in production mode
+- `npm run dev` Run server with nodemon
+- `npm run seed` Seed database data
+
+## API Base URL
+
+The frontend is configured to call:
+
+- `http://localhost:5000/api`
+
+## Main API Modules
+
+- Auth: `/api/auth`
+- Users: `/api/users`
+- Areas: `/api/areas`
+- Issues: `/api/issues`
+- Funds: `/api/funds`
+- Feedback: `/api/feedback`
+- Rankings: `/api/rankings`
+
+## Security Note
+
+Do not commit `server/.env` or any real credentials to GitHub. If credentials were ever exposed, rotate them immediately.
